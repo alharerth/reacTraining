@@ -30,9 +30,9 @@ export default function ButtonAppBar() {
           <Link to={'/counter'} variant="h6" component="div" sx={{ flexGrow: 1 }}>
             counter
           </Link>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            about
-          </Typography>
+          <Link to={'/namelist'} variant="h6" component="div" sx={{ flexGrow: 1 }}>
+            namelist
+          </Link>
           <Button color="inherit">Login</Button>
         </Toolbar>
       </AppBar>
