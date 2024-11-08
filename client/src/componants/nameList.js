@@ -1,18 +1,18 @@
 import ButtonAppBar from "./navbar";
 import React,{useState} from "react";
-
-
+import './style/namelist.css' 
+import { Component } from "react";
 
 
 export default function Namelist(){
     const [newlist, setNewlist] = useState([]);
 
-// Function to handle adding a new person
+
 const addPerson = () => {
     const n = document.getElementById("fName").value;
     const a = document.getElementById("age").value;
 
-    // Create a new person object
+    
     const person = {
         name: n,
         age: a
@@ -20,22 +20,23 @@ const addPerson = () => {
 
     setNewlist([...newlist, person]);
 
-    // Clear the input fields
+    
     document.getElementById("fName").value = '';
     document.getElementById("age").value = '';
 };
     return(
         <>
         <ButtonAppBar/>
-        <div>
+        <div className="container">
             <h1>welcome to news</h1>
 
-           name:<input type="text" id="fName"/>
-            age:<input type="number" id="age"/>
+           <label>name:<input type="text" id="fName" placeholder="your first name"/></label>
+           <label> age:<input type="number" id="age" placeholder="your age"/></label>
             <button onClick={addPerson}>submit</button>
+            <ul>
             {newlist.map((item,index)=>(
                 <li key={index}>welcome {item.name} your age is {item.age}</li>
-            ))}
+            ))}</ul>
         </div>
         </>
     )
