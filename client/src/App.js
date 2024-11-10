@@ -4,6 +4,7 @@ import Home from './componants/home';
 import News from './componants/news';
 import Counter from './componants/counter';
 import Namelist from './componants/nameList';
+import ProductDetails from './componants/details';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';  
 
 
@@ -15,6 +16,7 @@ function App() {
       <Route path='news' element={<News/>}/>
       <Route path='counter' element={<Counter/>}/>
       <Route path='namelist' element={<Namelist/>}/>
+      <Route path='/details' element={<ProductDetails/>}/>
     </Routes>
     </BrowserRouter>
     
