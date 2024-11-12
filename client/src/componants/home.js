@@ -9,21 +9,28 @@ import { Navigate } from "react-router-dom";
 
 export default function Home(props){
     var Navigate=useNavigate()
-    const handleProduct = (product)=>{
-        Navigate(`/details`,{state:product})
-    }
+    
 
-    var allProducts=[
-        {NAme:'product1',price:10,category:'men',description:'this is product1'},
-        {NAme:'product2',price:20,category:'women',description:'this is product2'},
-        {NAme:'product3',price:30,category:'women',description:'this is product3'},
-        {NAme:'product4',price:40,category:'men',description:'this is product4'},
-        {NAme:'product5',price:50,category:'old',description:'this is product5'},
-        {NAme:'product6',price:60,category:'men',description:'this is product6'},
-    ]
+    const [allProducts, setAllProducts] = useState([
+        { NAme: 'product1', price: 10, category: 'men', description: 'this is product1' },
+        { NAme: 'product2', price: 20, category: 'women', description: 'this is product2' },
+        { NAme: 'product3', price: 30, category: 'women', description: 'this is product3' },
+        { NAme: 'product4', price: 40, category: 'men', description: 'this is product4' },
+        { NAme: 'product5', price: 50, category: 'old', description: 'this is product5' },
+        { NAme: 'product6', price: 60, category: 'men', description: 'this is product6' },
+    ]);const handleProduct = (product) => {
+        
+        Navigate(`/details`, { state: { product} });
+    };
+    const updateProduct = (updatedProduct) => {
+        setAllProducts(prevProducts =>
+            prevProducts.map(product =>
+                product.NAme === updatedProduct.NAme ? updatedProduct : product
+            )
+        );
+    };
     var [category,setcategory]=useState('all');
     var [price,setprice]=useState('0');
-    
     
     var filtercategory=category==='all'?allProducts:allProducts.filter(item => item.category===category)
     var filteredPrices=filtercategory.filter(item => item.price>=price)
