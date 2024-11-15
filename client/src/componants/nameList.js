@@ -3,7 +3,6 @@ import React,{useState} from "react";
 import './style/namelist.css' 
 import { Component } from "react";
 
-
 export default function Namelist(){
     const [newlist, setNewlist] = useState([]);
 

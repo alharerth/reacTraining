@@ -10,7 +10,6 @@ import { Navigate } from "react-router-dom";
 export default function Home(props){
     var Navigate=useNavigate()
     
-
     const [allProducts, setAllProducts] = useState([
         { NAme: 'product1', price: 10, category: 'men', description: 'this is product1' },
         { NAme: 'product2', price: 20, category: 'women', description: 'this is product2' },
@@ -18,7 +17,8 @@ export default function Home(props){
         { NAme: 'product4', price: 40, category: 'men', description: 'this is product4' },
         { NAme: 'product5', price: 50, category: 'old', description: 'this is product5' },
         { NAme: 'product6', price: 60, category: 'men', description: 'this is product6' },
-    ]);const handleProduct = (product) => {
+    ]);
+    const handleProduct = (product) => {
         
         Navigate(`/details`, { state: { product} });
     };

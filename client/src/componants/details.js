@@ -1,26 +1,25 @@
 import ButtonAppBar from "./navbar";
 import Home from "./home";
 import { useLocation } from "react-router-dom";
-import { useEffect } from "react"; // Add useEffect here
+import { useEffect } from "react"; 
 import { useState } from "react";
 import './style/details.css';
 
-
 export default function ProductDetails(){
 
- // State to manage the visibility of the element
+ 
  const [isVisible, setIsVisible] = useState(false);
 
  const location = useLocation();
- const { product } = location.state || {}; // Ensure updateProduct is destructured
- // State to manage form inputs
+ const { product } = location.state || {}; 
+ 
  const [formData, setFormData] = useState({
     name: '',
     price: '',
     category: '',
     description: ''
 });
- // Populate form data with product details if available
+ 
  useEffect(() => {
     if (product) {
         setFormData({
@@ -32,12 +31,11 @@ export default function ProductDetails(){
     }
 }, [product]);
 
- // Function to toggle visibility
  const toggleVisibility = () => {
     setIsVisible(!isVisible);
  };
 
-    // Handle input changes
+    
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -49,11 +47,10 @@ export default function ProductDetails(){
     const handleSubmit = (e) => {
         e.preventDefault();
         if (product) {
-            const updatedProduct = { ...product, NAme: formData.name, price: formData.price, category: formData.category, description: formData.description };
-            // Call the update function directly in Home or use a context
-            // For now, we will just log the updated product
+            var updatedProduct = { ...product, NAme: formData.name, price: formData.price, category: formData.category, description: formData.description };
+            
             console.log("Updated Product:", updatedProduct);
-            // You can implement a way to call updateProduct here if using context
+            
         }
     };
     if (!product) {
