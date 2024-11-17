@@ -1,6 +1,6 @@
 import ButtonAppBar from "./navbar";
 import { useState } from "react";
-
+import EffectPage from "./effect";
 export default function News(){
     const [users, setUsers] = useState([]);
     const [name, setname] = useState("");
@@ -18,6 +18,7 @@ export default function News(){
     return(
         <>
         <ButtonAppBar/>
+        <EffectPage/>
         <div>
             <form id="userform" onSubmit={handlesubmit}>
                 <lable>

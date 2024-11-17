@@ -34,6 +34,7 @@ export default function Home(props){
     
     var filtercategory=category==='all'?allProducts:allProducts.filter(item => item.category===category)
     var filteredPrices=filtercategory.filter(item => item.price>=price)
+    
     return(
         <>
         <ButtonAppBar/>

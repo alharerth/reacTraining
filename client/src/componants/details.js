@@ -7,7 +7,7 @@ import './style/details.css';
 
 export default function ProductDetails(){
 
- 
+
  const [isVisible, setIsVisible] = useState(false);
 
  const location = useLocation();
@@ -19,7 +19,7 @@ export default function ProductDetails(){
     category: '',
     description: ''
 });
- 
+
  useEffect(() => {
     if (product) {
         setFormData({
